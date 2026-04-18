@@ -90,23 +90,6 @@ Because this MVP includes a user interface, mockups are required for the main im
 
 ---
 
-### 4. Nutrition Plan Review Screen
-
-* Plan summary
-* Daily meals
-* Shopping list
-* Local editing actions:
-
-  * replace meal
-  * replace ingredient
-  * make quicker
-  * make cheaper
-  * increase variety
-* **Purpose:**
-  Review and refine the generated plan
-
----
-
 ### 5. Doctor Join / Application Screen
 
 * **Fields:**
