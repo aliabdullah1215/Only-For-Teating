@@ -1,5 +1,3 @@
----
-
 # 1. Design System Architecture
 
 ## High-Level Architecture Diagram
@@ -87,7 +85,3 @@ flowchart LR
 * **External Service:** Groq API for AI nutrition plan generation
 * **File Storage:** Local media storage for uploaded doctor certificates
 * **Client-Side Temporary State:** Browser session storage for questionnaire and generated plan session
-
----
-
-
