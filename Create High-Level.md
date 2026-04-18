@@ -1,0 +1,63 @@
+### 3. Create High-Level Sequence Diagrams
+
+The following sequence diagrams cover three critical MVP interactions in the Data Diet system.
+
+#### 3.1 User Login Flow
+
+```mermaid
+sequenceDiagram
+    actor User
+    participant FE as Frontend (React)
+    participant BE as Backend (Django API)
+    participant DB as PostgreSQL
+
+    User->>FE: Enter username and password
+    FE->>BE: POST /api/users/login/
+    BE->>DB: Validate user credentials
+    DB-->>BE: User record
+    BE-->>FE: Access token + Refresh token + User role
+    FE-->>User: Redirect to role-based dashboard
+```
+
+#### 3.2 Client Generates an AI Nutrition Plan
+
+```mermaid
+sequenceDiagram
+    actor Client
+    participant FE as Frontend (React)
+    participant BE as Backend (Django API)
+    participant GROQ as Groq API
+
+    Client->>FE: Complete questionnaire and click Generate Plan
+    FE->>FE: Normalize answers and validate form
+    FE->>BE: POST /api/ai-plans/generate/
+    BE->>BE: Validate normalized profile
+    BE->>GROQ: Send nutrition profile and prompt
+    GROQ-->>BE: Return structured JSON nutrition plan
+    BE->>BE: Validate and hydrate plan
+    BE-->>FE: Nutrition plan response
+    FE->>FE: Store plan in session state
+    FE-->>Client: Display plan summary, meals, and shopping list
+```
+
+#### 3.3 Doctor Submits Application
+
+```mermaid
+sequenceDiagram
+    actor Doctor
+    participant FE as Frontend (React)
+    participant BE as Backend (Django API)
+    participant DB as PostgreSQL
+    participant FS as Media Storage
+
+    Doctor->>FE: Fill doctor application form and upload certificate
+    FE->>BE: POST /api/users/doctor-application/ (multipart/form-data)
+    BE->>DB: Check if doctor already has an application
+    DB-->>BE: No existing application
+    BE->>FS: Save certificate file
+    BE->>DB: Save doctor application record
+    DB-->>BE: Application created
+    BE-->>FE: Return application data and status
+    FE-->>Doctor: Show submitted application status
+```
+
