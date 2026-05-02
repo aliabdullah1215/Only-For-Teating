@@ -115,6 +115,7 @@ Data-Diet/
 │   └── package.json
 ├── README.md
 ├── Idea Development Documentation.md
+├── Technical Documentation.md
 └── Project Charter Development.md
 ```
 
@@ -381,7 +382,7 @@ Additional project documentation included in the repository:
 
 - `Idea Development Documentation.md`
 - `Project Charter Development.md`
-
+- `Technical Documentation.md`
 ## License
 
 This project currently does not define a formal license. Add one before public distribution if needed.
